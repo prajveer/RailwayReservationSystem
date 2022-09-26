@@ -1,0 +1,59 @@
+create table TrainDetails (TrainId int not null, TrainName varchar(50) not null, TrainType varchar(50) not null, From varchar(50) not null, TO varchar(50) not null,
+ArrivalTime varchar(50) not null, DepartureTime varchar(50) not null, Distance int not null, TrainCharges int not null, primary key(TrainId));
+
+
+insert into TrainDetails (TrainId,TrainName,TrainType,SourceStation,DestinationStation,ArrivalTime,DepartureTime,Distance,
+TrainCharges) values ('43823','Narmada Express','Passenger','Bhopal',
+'Nagpur',
+'9:30 ',
+'4:30',
+'780',
+'800');
+
+
+
+
+insert into TrainDetails (TrainId,TrainName,TrainType,SourceStation,DestinationStation,ArrivalTime,DepartureTime,Distance,
+TrainCharges) values ('11432','Rajdhani Express','Passenger','Bhihar',
+'Pune',
+'2:00',
+'10:30',
+'588',
+'460');
+
+
+
+
+insert into TrainDetails (TrainId,TrainName,TrainType,SourceStation,DestinationStation,ArrivalTime,DepartureTime,Distance,
+TrainCharges) values ('11077',
+'Jhelum Express',
+'Passenger',
+'Pune',
+'Delhi',
+'12:30 ',
+'1:30 ',
+'468 ',
+'500');
+
+
+
+
+insert into TrainDetails (TrainId,TrainName,TrainType,SourceStation,DestinationStation,ArrivalTime,DepartureTime,Distance,
+TrainCharges) values ('13222','Havda Express','Passenger','Navi Mumbai','Goa','11:30','6:45','566',
+'522');
+
+
+
+
+insert into TrainDetails (TrainId,TrainName,TrainType,SourceStation,DestinationStation,ArrivalTime,DepartureTime,Distance,
+TrainCharges) values ('23411' ,'Rajrani Express','Passenger','Jabalpur','Pune','2:30 AM','11:30 PM','588','490');
+
+
+create table BookingDetails(BookingId int IDENTITY(1,1)not null Primary KEY,TravellingFrom varchar(50)not null,
+TravellingTo varchar(50)not null,DepartureDate varchar(50) not null,
+ReturningDate varchar(50) not null,Adults int not null,Children int not null,TrainId int foreign key references TrainDetails(TrainId));
+
+
+Create table PaymentDetails(PaymentDetailId int Identity(1,1)not null primary key, CardOwnerName nvarchar(100)not null, CardNumber nvarchar(16) not null,
+ExpirationDate nvarchar(5) not null, SecurityCode nvarchar(3) not null);
+
